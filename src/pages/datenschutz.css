@@ -1,0 +1,416 @@
+/* Datenschutz Page Styles */
+.datenschutz-container {
+  min-height: 100vh;
+  padding: 40px 0;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.datenschutz-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  padding: 60px;
+  position: relative;
+  animation: slideInUp 0.7s ease-out;
+}
+
+.datenschutz-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 3px solid #0f3d91;
+}
+
+.datenschutz-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.datenschutz-header h1 {
+  color: #0f3d91;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.datenschutz-intro {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: #f8fafc;
+  border-left: 5px solid #0f3d91;
+  border-radius: 0 12px 12px 0;
+}
+
+.datenschutz-intro p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  text-align: justify;
+}
+
+.datenschutz-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.datenschutz-section {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.datenschutz-section h2 {
+  color: #0f3d91;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.datenschutz-section h3 {
+  color: #1b68c2;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 20px 0 10px 0;
+}
+
+.datenschutz-section p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.datenschutz-section p:last-child {
+  margin-bottom: 0;
+}
+
+.definition-item {
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #fafbfc;
+  border-radius: 8px;
+  border-left: 4px solid #1b68c2;
+}
+
+.definition-item h3 {
+  color: #0f3d91;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+}
+
+.definition-item p {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.company-info {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-top: 15px;
+}
+
+.company-info p {
+  margin: 5px 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.company-info p:first-child {
+  font-weight: 600;
+  color: #0f3d91;
+  font-size: 1rem;
+}
+
+.rights-subsection {
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid #0f3d91;
+}
+
+.rights-subsection h3 {
+  color: #0f3d91;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+}
+
+.rights-subsection p {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.datenschutz-navigation {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(15, 61, 145, 0.1);
+  text-align: center;
+}
+
+.back-link {
+  display: inline-block;
+  color: #0f3d91;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.back-link:hover {
+  color: #1b68c2;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .datenschutz-container {
+    padding: 20px 0;
+  }
+
+  .datenschutz-content {
+    margin: 15px 10px;
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .datenschutz-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+  }
+
+  .datenschutz-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .datenschutz-logo {
+    height: 50px;
+  }
+
+  .datenschutz-intro {
+    padding: 20px;
+    margin-bottom: 32px;
+  }
+
+  .datenschutz-intro p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .datenschutz-section {
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .datenschutz-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+  }
+
+  .datenschutz-section h3 {
+    font-size: 1rem;
+  }
+
+  .datenschutz-section p {
+    font-size: 14px;
+  }
+
+  .definition-item,
+  .rights-subsection {
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+
+  .definition-item h3,
+  .rights-subsection h3 {
+    font-size: 14px;
+  }
+
+  .definition-item p,
+  .rights-subsection p {
+    font-size: 13px;
+  }
+
+  .company-info {
+    padding: 16px;
+  }
+
+  .company-info p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .datenschutz-container {
+    padding: 15px 0;
+  }
+
+  .datenschutz-content {
+    margin: 10px 5px;
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+
+  .datenschutz-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+  }
+
+  .datenschutz-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .datenschutz-logo {
+    height: 40px;
+  }
+
+  .datenschutz-intro {
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  .datenschutz-intro p {
+    font-size: 13px;
+  }
+
+  .datenschutz-section {
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+
+  .datenschutz-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+
+  .datenschutz-section h3 {
+    font-size: 0.9rem;
+  }
+
+  .datenschutz-section p {
+    font-size: 13px;
+  }
+
+  .definition-item,
+  .rights-subsection {
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+
+  .definition-item h3,
+  .rights-subsection h3 {
+    font-size: 13px;
+  }
+
+  .definition-item p,
+  .rights-subsection p {
+    font-size: 12px;
+  }
+
+  .company-info {
+    padding: 12px;
+  }
+
+  .company-info p {
+    font-size: 12px;
+  }
+
+  .back-link {
+    font-size: 14px;
+  }
+
+  .datenschutz-navigation {
+    margin-top: 24px;
+    padding-top: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .datenschutz-content {
+    margin: 5px;
+    padding: 16px 12px;
+  }
+
+  .datenschutz-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .datenschutz-section h2 {
+    font-size: 1rem;
+  }
+
+  .definition-item,
+  .rights-subsection {
+    padding: 10px;
+  }
+}
+
+/* Smooth Page Transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth transitions for interactive elements */
+.back-link {
+  transition: all 0.3s ease;
+}
+
+.datenschutz-section {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.datenschutz-section:nth-child(2) { animation-delay: 0.1s; }
+.datenschutz-section:nth-child(3) { animation-delay: 0.2s; }
+.datenschutz-section:nth-child(4) { animation-delay: 0.3s; }
+.datenschutz-section:nth-child(5) { animation-delay: 0.4s; }
+.datenschutz-section:nth-child(6) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
