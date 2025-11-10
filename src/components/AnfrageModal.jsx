@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
-import './AnfrageModal.css';
+import '../css/AnfrageModal.css'
 
 function AnfrageModal({ isOpen, onClose }) {
     const [formData, setFormData] = useState({

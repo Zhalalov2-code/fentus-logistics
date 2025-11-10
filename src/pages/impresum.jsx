@@ -1,5 +1,5 @@
 import '../App.css';
-import './impressum.css';
+import '../css/impressum.css';
 import fentusLogo from '../img/fentus-logo.png';
 
 function Impressum() {

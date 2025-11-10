@@ -215,7 +215,7 @@ header.top-nav nav a:hover {
   right: -100%;
   width: 280px;
   height: 100vh;
-  background: #fff;
+  background: linear-gradient(135deg, #0f3d91 0%, #1b68c2 100%);
   transition: right 0.3s ease;
   z-index: 1000;
   padding: 80px 20px 20px;
@@ -230,35 +230,77 @@ header.top-nav nav a:hover {
 .mobile-nav-menu .nav-item {
   display: block;
   padding: 16px 20px;
-  color: #1a1f36;
+  color: #ffffff;
   font-weight: 500;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .mobile-nav-menu a:hover,
 .mobile-nav-menu .nav-item:hover {
-  background: #f8fafc;
-  color: #0f3d91;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
   padding-left: 25px;
 }
 
 .mobile-nav-cta {
   margin-top: 20px;
   display: block;
-  background: #0f3d91;
-  color: #fff;
+  background: #ffffff;
+  color: #0f3d91 !important;
   padding: 14px 20px;
   text-align: center;
   border-radius: 12px;
   font-weight: 600;
   transition: all 0.2s ease;
+  border: 2px solid #ffffff;
 }
 
 .mobile-nav-cta:hover {
-  background: #1b68c2;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0f3d91 !important;
   transform: translateY(-2px);
+}
+
+/* Кнопка закрытия мобильного меню */
+.mobile-menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  padding: 0;
+}
+
+.mobile-menu-close::before,
+.mobile-menu-close::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-close::before {
+  transform: rotate(45deg);
+}
+
+.mobile-menu-close::after {
+  transform: rotate(-45deg);
+}
+
+.mobile-menu-close:hover::before,
+.mobile-menu-close:hover::after {
+  background: #e2e8f0;
 }
 
 main {

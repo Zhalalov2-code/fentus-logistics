@@ -1,6 +1,6 @@
 import '../App.css';
 import fentusLogo from '../img/fentus-logo.png';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import AnfrageModal from '../components/AnfrageModal';
 import icon1 from '../img/icon1.png';
 import icon2 from '../img/icon2.png';
@@ -23,6 +23,10 @@ import icon17 from '../img/icon17.png';
 function Main() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [containers, setContainers] = useState(0);
+    const [delivery, setDelivery] = useState(0);
+    const [hasAnimated, setHasAnimated] = useState(false);
+    const statsRef = useRef(null);
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -41,13 +45,73 @@ function Main() {
         setIsMobileMenuOpen(false);
     };
 
+    // Intersection Observer для запуска анимации при появлении блока
+    useEffect(() => {
+        const currentRef = statsRef.current;
+        
+        // Функция анимации счётчиков
+        const animateCounters = () => {
+            const duration = 2000; // 2 секунды
+            const fps = 60;
+            const steps = duration / (1000 / fps);
+            
+            // Анимация для контейнеров (до 200)
+            let currentContainer = 0;
+            const containerStep = 200 / steps;
+            const containerInterval = setInterval(() => {
+                currentContainer += containerStep;
+                if (currentContainer >= 200) {
+                    setContainers(200);
+                    clearInterval(containerInterval);
+                } else {
+                    setContainers(Math.floor(currentContainer));
+                }
+            }, 1000 / fps);
+
+            // Анимация для процента доставки (до 95)
+            let currentDelivery = 0;
+            const deliveryStep = 95 / steps;
+            const deliveryInterval = setInterval(() => {
+                currentDelivery += deliveryStep;
+                if (currentDelivery >= 95) {
+                    setDelivery(95);
+                    clearInterval(deliveryInterval);
+                } else {
+                    setDelivery(Math.floor(currentDelivery));
+                }
+            }, 1000 / fps);
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && !hasAnimated) {
+                        setHasAnimated(true);
+                        animateCounters();
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
+
+        if (currentRef) {
+            observer.observe(currentRef);
+        }
+
+        return () => {
+            if (currentRef) {
+                observer.unobserve(currentRef);
+            }
+        };
+    }, [hasAnimated]);
+
     return (
         <div className="App">
             <header className="top-nav">
                 <div className="brand">
                     <img src={fentusLogo} alt="Fentus Logistics GmbH" className="brand-logo" />
                 </div>
-                
+
                 {/* Desktop Navigation */}
                 <nav>
                     <a href="#about">Über uns</a>
@@ -61,7 +125,7 @@ function Main() {
                 </a>
 
                 {/* Mobile Burger Menu */}
-                <button 
+                <button
                     className={`burger-menu ${isMobileMenuOpen ? 'active' : ''}`}
                     onClick={toggleMobileMenu}
                     aria-label="Mobile Menu"
@@ -73,13 +137,18 @@ function Main() {
             </header>
 
             {/* Mobile Navigation Overlay */}
-            <div 
+            <div
                 className={`mobile-nav-overlay ${isMobileMenuOpen ? 'active' : ''}`}
                 onClick={closeMobileMenu}
             ></div>
 
             {/* Mobile Navigation Menu */}
             <nav className={`mobile-nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+                <button 
+                    className="mobile-menu-close" 
+                    onClick={closeMobileMenu}
+                    aria-label="Menü schließen"
+                ></button>
                 <a href="#about" onClick={closeMobileMenu}>Über uns</a>
                 <a href="#services" onClick={closeMobileMenu}>Leistungen</a>
                 <a href="#contact" onClick={closeMobileMenu}>Kontakt</a>
@@ -103,13 +172,13 @@ function Main() {
                                 Mehr erfahren
                             </a>
                         </div>
-                        <div className="hero-stats">
+                        <div className="hero-stats" ref={statsRef}>
                             <div>
-                                <span className="stat-number">200+</span>
+                                <span className="stat-number">{containers}+</span>
                                 <span className="stat-label">Container monatlich</span>
                             </div>
                             <div>
-                                <span className="stat-number">95%</span>
+                                <span className="stat-number">{delivery}%</span>
                                 <span className="stat-label">pünktliche Lieferungen</span>
                             </div>
                             <div>
@@ -123,37 +192,40 @@ function Main() {
                 <section id="about" className="section about">
                     <div className="section-header">
                         <span className="eyebrow">Über das Unternehmen</span>
-                        <h2>Fentus Logistics — Ihr zuverlässiger Transportpartner</h2>
+                        <h2>Fentus Logistics — Ihr flexibler Partner für Container- und Seefrachttransporte</h2>
                         <p>
-                            Durch umfangreiche Beziehungen zu Geschäftspartnern und Transportunternehmen sind wir Ihr Ansprechpartner, wenn es sich um die kompetente und qualitativ hochwertige Transportsicherheit und Abwicklung Ihrer Waren handelt.
+                            Fentus Logistics steht für zuverlässige Lösungen im nationalen und internationalen Containerverkehr.
+                            Unser Schwerpunkt liegt auf der Organisation und Abwicklung von Seefrachttransporten – effizient, sicher und termingerecht.
                         </p>
                         <p>
-                            Unsere Fahrzeuge transportieren für Sie alle Güterarten in Container-, Planen- oder offenen Aufliegern. Die Qualität der Durchführung Ihrer Transporte und der permanente Informationsfluss sind die wichtigsten Segmente einer umfassenden Kundenzufriedenheit.
-                        </p>
-                        <p>
-                            Obwohl unsere Hauptaktivität der nationale und internationale Containerverkehr ist, übernehmen wir gerne für Sie alle anderen speditionellen Leistungen. Des Weiteren können wir bei unterschiedlichsten Containerpackaktivitäten unterstützen und begleiten.
+                            Durch unser starkes Netzwerk erfahrener Dienstleister mit eigenen Fahrzeugen können wir flexibel auf jede Situation reagieren.
+                            Ob einzelne Container oder größere Projekte – mit Fentus Logistics haben Sie einen Partner, der schnell handelt,
+                            transparent kommuniziert und sich um jedes Detail kümmert.
                         </p>
                     </div>
                     <div className="about-grid">
                         <article>
                             <h3>Partnernetzwerk</h3>
                             <p>
-                                Über 120 geprüfte Agenten in Häfen Europas, Asiens und des Nahen
-                                Ostens ermöglichen schnelle Buchungen und Routenoptimierung.
+                                Über 120 verlässliche Agenten in den wichtigsten Häfen Europas, Asiens und des Nahen Ostens.
+                                Schnelle Buchungsbestätigungen, stabile Kapazitäten auch bei Engpässen und flexible Routenoptionen
+                                für eilige oder sensible Sendungen.
                             </p>
                         </article>
                         <article>
                             <h3>Kontrolltechnologien</h3>
                             <p>
-                                Track & Trace, automatischer Statusabgleich, Benachrichtigungen über
-                                Dokumentenverfügbarkeit und Ankunftsprognosen – alles für Kunden verfügbar.
+                                Moderne Track-&-Trace-Systeme, automatischer Statusabgleich und Benachrichtigungen zu Dokumenten
+                                und Ankunftszeiten geben Ihnen jederzeit ein klares Bild Ihrer Sendung. Abweichungen werden früh erkannt,
+                                Prognosen laufend aktualisiert.
                             </p>
                         </article>
                         <article>
                             <h3>Branchenfokus</h3>
                             <p>
-                                Wir arbeiten mit Maschinenbau, FMCG, E-Commerce und Chemieherstellern
-                                und wählen Lösungen nach Frachtspezifikation aus.
+                                Wir konzentrieren uns auf Branchen, in denen wir zuhause sind: Maschinenbau, FMCG, E-Commerce und Chemieindustrie.
+                                Gemeinsam definieren wir Anforderungen und entwickeln abgestimmte Transport- und Lagerkonzepte,
+                                die im Alltag bestehen.
                             </p>
                         </article>
                     </div>
@@ -235,11 +307,10 @@ function Main() {
                         </article>
                     </div>
                     <div className="highlight">
-                        <h3>Flexible SLAs und transparente Preisgestaltung</h3>
+                        <h3>Flexible SLAs und transparente Preise</h3>
                         <p>
-                            Wir bieten adaptive Verträge nach Volumen, Saisonalität und Anforderungen
-                            Ihrer Kunden. Verzögerungsmeldungen kommen im Voraus, und der Zugang
-                            zu Analytics hilft bei der Logistikplanung.
+                            Unsere Verträge passen sich Ihrem Bedarf an – egal ob Volumen, Saisonspitzen oder besondere 
+                            Anforderungen. Frühzeitige Statusmeldungen und Analytics-Zugang halten Sie jederzeit informiert.
                         </p>
                     </div>
                 </section>
@@ -247,21 +318,23 @@ function Main() {
                 <section className="section team">
                     <div className="section-header">
                         <span className="eyebrow">UNSER TEAM</span>
-                        <h2>Mit bestem Know-how für Sie aktiv</h2>
+                        <h2>Zuverlässig. Engagiert. Immer an Ihrer Seite.</h2>
                         <p>Sie suchen einen zuverlässigen Partner für Ihren Auftrag?</p>
                     </div>
                     <div className="team-content">
                         <p>
-                            … beauftragen Sie uns und lehnen sich entspannt zurück, denn bei Fentus Logistics ist Ihr Auftrag in besten Händen!
+                            Bei Fentus Logistics steht Ihr Auftrag im Mittelpunkt. Wir kümmern uns um jedes Detail – 
+                            von der Planung bis zur sicheren Ankunft Ihrer Güter.
                         </p>
                         <p>
-                            Wir sind Ihr kompetenter Ansprechpartner sowohl in den Spedition- und Logistikdienstleistungen als auch in allen Aktivitäten rund um den Hafenservice.
+                            Seit über 15 Jahren verbinden wir Erfahrung mit moderner Organisation. Ob Spedition, Logistik 
+                            oder Hafenservice – wir entwickeln Lösungen, die passen: effizient, flexibel und auf Ihre 
+                            Bedürfnisse zugeschnitten.
                         </p>
                         <p>
-                            Ihre Güter werden von uns mit größter Sorgfalt und Zuverlässigkeit behandelt. Unser eingespieltes Team aus erfahrenen Mitarbeitern setzt alles daran die Wünsche des Kunden zu erfüllen. Als junges und dynamisches Unternehmen legen wir großen Wert auf gute Zusammenarbeit, reibungslose Auftragsabwicklung und das aller Wichtigste, Kundenzufriedenheit!
-                        </p>
-                        <p>
-                            Mit gebündeltem Know-how stehen wir Ihnen bei jeder Frage zur Seite.
+                            Wir begleiten unsere Kunden persönlich, denken mit und handeln vorausschauend – 
+                            damit alles reibungslos läuft. Vertrauen Sie auf Fentus Logistics – Ihr Partner, 
+                            wenn Zuverlässigkeit und Qualität zählen.
                         </p>
                     </div>
                 </section>

@@ -1,5 +1,5 @@
 import '../App.css';
-import './datenschutz.css';
+import '../css/datenschutz.css'
 import fentusLogo from '../img/fentus-logo.png';
 
 function Datenschutz() {
