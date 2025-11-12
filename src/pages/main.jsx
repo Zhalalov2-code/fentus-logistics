@@ -55,26 +55,26 @@ function Main() {
             const fps = 60;
             const steps = duration / (1000 / fps);
             
-            // Анимация для контейнеров (до 200)
+            // Анимация для контейнеров (до 500)
             let currentContainer = 0;
-            const containerStep = 200 / steps;
+            const containerStep = 500 / steps;
             const containerInterval = setInterval(() => {
                 currentContainer += containerStep;
-                if (currentContainer >= 200) {
-                    setContainers(200);
+                if (currentContainer >= 500) {
+                    setContainers(500);
                     clearInterval(containerInterval);
                 } else {
                     setContainers(Math.floor(currentContainer));
                 }
             }, 1000 / fps);
 
-            // Анимация для процента доставки (до 95)
+            // Анимация для процента доставки (до 98)
             let currentDelivery = 0;
-            const deliveryStep = 95 / steps;
+            const deliveryStep = 98 / steps;
             const deliveryInterval = setInterval(() => {
                 currentDelivery += deliveryStep;
-                if (currentDelivery >= 95) {
-                    setDelivery(95);
+                if (currentDelivery >= 98) {
+                    setDelivery(98);
                     clearInterval(deliveryInterval);
                 } else {
                     setDelivery(Math.floor(currentDelivery));
@@ -327,7 +327,7 @@ function Main() {
                             von der Planung bis zur sicheren Ankunft Ihrer Güter.
                         </p>
                         <p>
-                            Seit über 15 Jahren verbinden wir Erfahrung mit moderner Organisation. Ob Spedition, Logistik 
+                            Seit über 10 Jahren verbinden wir Erfahrung mit moderner Organisation. Ob Spedition, Logistik 
                             oder Hafenservice – wir entwickeln Lösungen, die passen: effizient, flexibel und auf Ihre 
                             Bedürfnisse zugeschnitten.
                         </p>
