@@ -2,6 +2,7 @@ import '../App.css';
 import fentusLogo from '../img/fentus-logo.png';
 import { useState, useEffect, useRef } from 'react';
 import AnfrageModal from '../components/AnfrageModal';
+import CookieBanner from '../components/CookieBanner';
 import icon1 from '../img/icon1.png';
 import icon2 from '../img/icon2.png';
 import icon3 from '../img/icon3.png';
@@ -9,15 +10,12 @@ import icon4 from '../img/icon4.png';
 import icon5 from '../img/icon5.png';
 import icon6 from '../img/icon6.png';
 import icon7 from '../img/icon7.png';
-import icon8 from '../img/icon8.png';
 import icon9 from '../img/icon9.png';
 import icon10 from '../img/icon10.png';
 import icon11 from '../img/icon11.png';
 import icon12 from '../img/icon12.png';
 import icon13 from '../img/icon13.png';
 import icon14 from '../img/icon14.png';
-import icon15 from '../img/icon15.png';
-import icon16 from '../img/icon16.png';
 import icon17 from '../img/icon17.png';
 
 function Main() {
@@ -48,13 +46,13 @@ function Main() {
     // Intersection Observer для запуска анимации при появлении блока
     useEffect(() => {
         const currentRef = statsRef.current;
-        
+
         // Функция анимации счётчиков
         const animateCounters = () => {
             const duration = 2000; // 2 секунды
             const fps = 60;
             const steps = duration / (1000 / fps);
-            
+
             // Анимация для контейнеров (до 500)
             let currentContainer = 0;
             const containerStep = 500 / steps;
@@ -144,8 +142,8 @@ function Main() {
 
             {/* Mobile Navigation Menu */}
             <nav className={`mobile-nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-                <button 
-                    className="mobile-menu-close" 
+                <button
+                    className="mobile-menu-close"
                     onClick={closeMobileMenu}
                     aria-label="Menü schließen"
                 ></button>
@@ -162,7 +160,7 @@ function Main() {
             <main>
                 <section id="hero" className="hero">
                     <div className="hero-content">
-                        <h1>Stark im Hafen, professionell im Transport. Hafenservice in besten Händen.</h1>
+                        <h1>Mit uns vom Hafen bis zum Ziel – perfekt koordiniert.</h1>
                         <br />
                         <div className="hero-actions">
                             <a className="primary-btn" href="#contact">
@@ -205,11 +203,10 @@ function Main() {
                     </div>
                     <div className="about-grid">
                         <article>
-                            <h3>Partnernetzwerk</h3>
+                            <h3>Partnernetzwerk Containertrucker</h3>
                             <p>
-                                Über 120 verlässliche Agenten in den wichtigsten Häfen Europas, Asiens und des Nahen Ostens.
-                                Schnelle Buchungsbestätigungen, stabile Kapazitäten auch bei Engpässen und flexible Routenoptionen
-                                für eilige oder sensible Sendungen.
+                                Wir koordinieren ein leistungsstarkes Netzwerk aus erfahrenen Containertrucker-Partnern, um unseren Kundinnen und Kunden zuverlässige, transparente und flexibel planbare Transporte zu bieten.
+                                Durch die zentrale Steuerung aller Anfragen gewährleisten wir eine schnelle Rückmeldung und eine effiziente Abwicklung – auch bei kurzfristigen Änderungen.
                             </p>
                         </article>
                         <article>
@@ -221,11 +218,10 @@ function Main() {
                             </p>
                         </article>
                         <article>
-                            <h3>Branchenfokus</h3>
+                            <h3>Branchenfokus – Containerlogistik & Transport</h3>
                             <p>
-                                Wir konzentrieren uns auf Branchen, in denen wir zuhause sind: Maschinenbau, FMCG, E-Commerce und Chemieindustrie.
-                                Gemeinsam definieren wir Anforderungen und entwickeln abgestimmte Transport- und Lagerkonzepte,
-                                die im Alltag bestehen.
+                                Unsere Kernbranche: Containerlogistik entlang der gesamten Transportkette
+                                Wir sind spezialisiert auf die ganzheitliche Organisation und Abwicklung von Containertransporten – vom Hafen über das Depot bis hin zum Endkunden.
                             </p>
                         </article>
                     </div>
@@ -266,10 +262,6 @@ function Main() {
                             {/* <p>Bereitstellung von Chassis für Containertransporte</p> */}
                         </article>
                         <article>
-                            <h3><img src={icon8} alt="" className="service-icon" />Zollabwicklung</h3>
-                            {/* <p>Professionelle Zollabfertigung und Dokumentenbearbeitung</p> */}
-                        </article>
-                        <article>
                             <h3><img src={icon9} alt="" className="service-icon" />Warenlagerung</h3>
                             {/* <p>Sichere Lagerung und Kommissionierung Ihrer Güter</p> */}
                         </article>
@@ -294,25 +286,17 @@ function Main() {
                             {/* <p>Reefer-Monitoring und Temperaturüberwachung</p> */}
                         </article>
                         <article>
-                            <h3><img src={icon15} alt="" className="service-icon" />Seemäßige Verpackung</h3>
-                            {/* <p>Fachgerechte Verpackung für Seefrachttransporte</p> */}
-                        </article>
-                        <article>
-                            <h3><img src={icon16} alt="" className="service-icon" />Waggon Be- und Entladung</h3>
-                            {/* <p>Umschlag zwischen Bahn und anderen Verkehrsträgern</p> */}
-                        </article>
-                        <article>
                             <h3><img src={icon17} alt="" className="service-icon" />Sonderfahrten und Eiltransporte</h3>
                             {/* <p>Express-Transporte und individuelle Sonderlösungen</p> */}
                         </article>
                     </div>
-                    <div className="highlight">
+                    {/* <div className="highlight">
                         <h3>Flexible SLAs und transparente Preise</h3>
                         <p>
-                            Unsere Verträge passen sich Ihrem Bedarf an – egal ob Volumen, Saisonspitzen oder besondere 
+                            Unsere Verträge passen sich Ihrem Bedarf an – egal ob Volumen, Saisonspitzen oder besondere
                             Anforderungen. Frühzeitige Statusmeldungen und Analytics-Zugang halten Sie jederzeit informiert.
                         </p>
-                    </div>
+                    </div> */}
                 </section>
 
                 <section className="section team">
@@ -323,18 +307,15 @@ function Main() {
                     </div>
                     <div className="team-content">
                         <p>
-                            Bei Fentus Logistics steht Ihr Auftrag im Mittelpunkt. Wir kümmern uns um jedes Detail – 
-                            von der Planung bis zur sicheren Ankunft Ihrer Güter.
-                        </p>
-                        <p>
-                            Seit über 10 Jahren verbinden wir Erfahrung mit moderner Organisation. Ob Spedition, Logistik 
-                            oder Hafenservice – wir entwickeln Lösungen, die passen: effizient, flexibel und auf Ihre 
-                            Bedürfnisse zugeschnitten.
-                        </p>
-                        <p>
-                            Wir begleiten unsere Kunden persönlich, denken mit und handeln vorausschauend – 
-                            damit alles reibungslos läuft. Vertrauen Sie auf Fentus Logistics – Ihr Partner, 
+                            Wir begleiten unsere Kunden persönlich, denken mit und handeln vorausschauend –
+                            damit alles reibungslos läuft. Vertrauen Sie auf Fentus Logistics – Ihr Partner,
                             wenn Zuverlässigkeit und Qualität zählen.
+                        </p>
+                        <p>
+                            Seit 2001 sind wir in der Container- und Transportbranche aktiv. Unser Team verbindet langjährige Erfahrung mit modernem Netzwerk- und Terminmanagement, um unseren Kundinnen und Kunden zuverlässige, transparente und effiziente Containertransporte zu gewährleisten.
+                        </p>
+                        <p>
+                            Seit 2016 sind wir mit der Fentus Logistics GmbH selbständig tätig. Mit unserer eigenen Lkw-Flotte und einem starken Netzwerk erfahrener Containertrucker sichern wir Terminsicherheit, Flexibilität und höchste Servicequalität – von der Planung bis zur pünktlichen Lieferung.  Wir begleiten unsere Kunden persönlich, denken mit und handeln vorausschauend – damit alles reibungslos läuft. Vertrauen Sie auf Fentus Logistics – Ihr Partner, wenn Zuverlässigkeit und Qualität zählen.
                         </p>
                     </div>
                 </section>
@@ -380,8 +361,8 @@ function Main() {
                             <div>
                                 <h3>Kontaktdaten</h3>
                                 <p>
-                                    Tel.: +49 40 123 456 70<br />
-                                    Email: hello@fentus-logistics.de<br />
+                                    Telefon: +49 (0) 40 285 30 82-0  Zentrale<br />
+                                    E-Mail: info@fentus.de<br />
                                 </p>
                             </div>
                         </div>
@@ -433,6 +414,9 @@ function Main() {
 
             {/* Modal für Anfrage */}
             <AnfrageModal isOpen={isModalOpen} onClose={closeModal} />
+
+            {/* Cookie Banner */}
+            <CookieBanner />
 
             <footer className="footer">
                 <div>
