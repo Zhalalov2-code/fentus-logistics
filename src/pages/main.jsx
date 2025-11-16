@@ -302,17 +302,13 @@ function Main() {
                 <section className="section team">
                     <div className="section-header">
                         <span className="eyebrow">UNSER TEAM</span>
-                        <h2>Zuverlässig. Engagiert. Immer an Ihrer Seite.</h2>
-                        <p>Sie suchen einen zuverlässigen Partner für Ihren Auftrag?</p>
                     </div>
                     <div className="team-content">
                         <p>
-                            Wir begleiten unsere Kunden persönlich, denken mit und handeln vorausschauend –
-                            damit alles reibungslos läuft. Vertrauen Sie auf Fentus Logistics – Ihr Partner,
-                            wenn Zuverlässigkeit und Qualität zählen.
+                            Seit 2001 sind wir in der Container- und Transportbranche aktiv.
                         </p>
                         <p>
-                            Seit 2001 sind wir in der Container- und Transportbranche aktiv. Unser Team verbindet langjährige Erfahrung mit modernem Netzwerk- und Terminmanagement, um unseren Kundinnen und Kunden zuverlässige, transparente und effiziente Containertransporte zu gewährleisten.
+                            Unser Team verbindet langjährige Erfahrung mit modernem Netzwerk- und Terminmanagement, um unseren Kundinnen und Kunden zuverlässige, transparente und effiziente Containertransporte zu gewährleisten.
                         </p>
                         <p>
                             Seit 2016 sind wir mit der Fentus Logistics GmbH selbständig tätig. Mit unserer eigenen Lkw-Flotte und einem starken Netzwerk erfahrener Containertrucker sichern wir Terminsicherheit, Flexibilität und höchste Servicequalität – von der Planung bis zur pünktlichen Lieferung.  Wir begleiten unsere Kunden persönlich, denken mit und handeln vorausschauend – damit alles reibungslos läuft. Vertrauen Sie auf Fentus Logistics – Ihr Partner, wenn Zuverlässigkeit und Qualität zählen.
@@ -381,7 +377,7 @@ function Main() {
                         </div>
                         <div className="info-block">
                             <span className="info-title">Sprachen</span>
-                            <span className="info-text">Deutsch • English • Русский</span>
+                            <span className="info-text">Deutsch • English • Russian</span>
                         </div>
                     </aside>
                 </section>
