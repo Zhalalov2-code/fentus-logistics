@@ -3,6 +3,8 @@ import fentusLogo from '../img/fentus-logo.png';
 import { useState, useEffect, useRef } from 'react';
 import AnfrageModal from '../components/AnfrageModal';
 import CookieBanner from '../components/CookieBanner';
+import Bewertungen from '../components/bewertungen'; 
+import IconBewertungen from '../img/icon-bewertungen.jpg'
 import icon1 from '../img/icon1.png';
 import icon2 from '../img/icon2.png';
 import icon3 from '../img/icon3.png';
@@ -18,23 +20,41 @@ import icon13 from '../img/icon13.png';
 import icon14 from '../img/icon14.png';
 import icon17 from '../img/icon17.png';
 
+
 function Main() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    // Zwei separate Zustände für die Modalfenster
+    const [isAnfrageModalOpen, setIsAnfrageModalOpen] = useState(false);
+    const [isReviewModalOpen, setIsReviewModalOpen] = useState(false); 
+    
+    // Zustand für das mobile Menü
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    
+    // Zustände für die Animation der Statistiken
     const [containers, setContainers] = useState(0);
     const [delivery, setDelivery] = useState(0);
     const [hasAnimated, setHasAnimated] = useState(false);
     const statsRef = useRef(null);
 
-    const openModal = () => {
-        setIsModalOpen(true);
+    // Funktionen für das ANFRAGE-Modalfenster (AnfrageModal)
+    const openAnfrageModal = () => {
+        setIsAnfrageModalOpen(true);
         setIsMobileMenuOpen(false);
     };
 
-    const closeModal = () => {
-        setIsModalOpen(false);
+    const closeAnfrageModal = () => {
+        setIsAnfrageModalOpen(false);
     };
 
+    // Funktionen für das BEWERTUNGEN-Modalfenster (Bewertungen)
+    const openReviewModal = () => {
+        setIsReviewModalOpen(true);
+    };
+
+    const closeReviewModal = () => {
+        setIsReviewModalOpen(false);
+    };
+
+    // Funktionen für das mobile Menü
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
@@ -43,17 +63,17 @@ function Main() {
         setIsMobileMenuOpen(false);
     };
 
-    // Intersection Observer для запуска анимации при появлении блока
+    // Intersection Observer zur Animation der Zähler
     useEffect(() => {
         const currentRef = statsRef.current;
 
-        // Функция анимации счётчиков
+        // Funktion zur Animation der Zähler
         const animateCounters = () => {
-            const duration = 2000; // 2 секунды
+            const duration = 2000; // 2 Sekunden
             const fps = 60;
             const steps = duration / (1000 / fps);
 
-            // Анимация для контейнеров (до 500)
+            // Animation für Container (bis 500)
             let currentContainer = 0;
             const containerStep = 500 / steps;
             const containerInterval = setInterval(() => {
@@ -66,7 +86,7 @@ function Main() {
                 }
             }, 1000 / fps);
 
-            // Анимация для процента доставки (до 98)
+            // Animation für Lieferprozent (bis 98)
             let currentDelivery = 0;
             const deliveryStep = 98 / steps;
             const deliveryInterval = setInterval(() => {
@@ -116,7 +136,7 @@ function Main() {
                     <a href="#services">Leistungen</a>
                     <a href="#contact">Kontakt</a>
                     <a href="#map">Standort</a>
-                    <span className="nav-anfrage-link" onClick={openModal}>Anfrage</span>
+                    <span className="nav-anfrage-link" onClick={openAnfrageModal}>Anfrage</span>
                 </nav>
                 <a className="nav-cta" href="#contact">
                     Kontakt aufnehmen
@@ -151,7 +171,7 @@ function Main() {
                 <a href="#services" onClick={closeMobileMenu}>Leistungen</a>
                 <a href="#contact" onClick={closeMobileMenu}>Kontakt</a>
                 <a href="#map" onClick={closeMobileMenu}>Standort</a>
-                <span className="nav-item" onClick={openModal}>Anfrage</span>
+                <span className="nav-item" onClick={openAnfrageModal}>Anfrage</span>
                 <a className="mobile-nav-cta" href="#contact" onClick={closeMobileMenu}>
                     Kontakt aufnehmen
                 </a>
@@ -290,13 +310,6 @@ function Main() {
                             {/* <p>Express-Transporte und individuelle Sonderlösungen</p> */}
                         </article>
                     </div>
-                    {/* <div className="highlight">
-                        <h3>Flexible SLAs und transparente Preise</h3>
-                        <p>
-                            Unsere Verträge passen sich Ihrem Bedarf an – egal ob Volumen, Saisonspitzen oder besondere
-                            Anforderungen. Frühzeitige Statusmeldungen und Analytics-Zugang halten Sie jederzeit informiert.
-                        </p>
-                    </div> */}
                 </section>
 
                 <section className="section team">
@@ -311,33 +324,11 @@ function Main() {
                             Unser Team verbindet langjährige Erfahrung mit modernem Netzwerk- und Terminmanagement, um unseren Kundinnen und Kunden zuverlässige, transparente und effiziente Containertransporte zu gewährleisten.
                         </p>
                         <p>
-                            Seit 2016 sind wir mit der Fentus Logistics GmbH selbständig tätig. Mit unserer eigenen Lkw-Flotte und einem starken Netzwerk erfahrener Containertrucker sichern wir Terminsicherheit, Flexibilität und höchste Servicequalität – von der Planung bis zur pünktlichen Lieferung.  Wir begleiten unsere Kunden persönlich, denken mit und handeln vorausschauend – damit alles reibungslos läuft. Vertrauen Sie auf Fentus Logistics – Ihr Partner, wenn Zuverlässigkeit und Qualität zählen.
+                            Seit 2016 sind wir mit der Fentus Logistics GmbH selbständig tätig. Mit unserer eigenen Lkw-Flotte und einem starken Netzwerk erfahrener Containertrucker sichern wir Terminsicherheit, Flexibilität und höchste Servicequalität – von der Planung bis zur pünktlichen Lieferung. Wir begleiten unsere Kunden persönlich, denken mit und handeln vorausschauend – damit alles reibungslos läuft. Vertrauen Sie auf Fentus Logistics – Ihr Partner, wenn Zuverlässigkeit und Qualität zählen.
                         </p>
                     </div>
                 </section>
-
-                <section className="section testimonials">
-                    <div className="section-header">
-                        <span className="eyebrow">Vertrauen uns</span>
-                        <h2>Kundenbewertungen</h2>
-                    </div>
-                    <div className="testimonial-grid">
-                        <blockquote>
-                            <p>
-                                Ein sehr empfehlenswertes Firma auf jedenfall bester Container Transporter Weltweit!!!!
-                            </p>
-                            <cite>Alperen Kocak</cite>
-                        </blockquote>
-                        <blockquote>
-                            <p>
-
-                                Bester Container Transporter Weltweit.
-                            </p>
-                            <cite>Ali Reza Sekander</cite>
-                        </blockquote>
-                    </div>
-                </section>
-
+                
                 <section id="contact" className="section contact">
                     <div className="contact-card">
                         <h2>Kontaktieren Sie uns</h2>
@@ -373,7 +364,8 @@ function Main() {
                     <aside className="contact-info">
                         <div className="info-block">
                             <span className="info-title">Arbeitszeiten</span>
-                            <span className="info-text">Mo–Fr 08:30–19:00 CET</span>
+                            <span className="info-text"><b>Mo–Fr</b> 08:00–17:00 CET</span>
+                            <span className="info-text"><b>Sa–So</b> Geschlossen </span>
                         </div>
                         <div className="info-block">
                             <span className="info-title">Sprachen</span>
@@ -406,12 +398,27 @@ function Main() {
                         ></iframe>
                     </div>
                 </section>
+                
+                {/* Fixed Review Button */}
+                <button 
+                    onClick={openReviewModal} 
+                    aria-label="Geprüfte Bewertungen anzeigen" 
+                    className='bewertungen'
+                >
+                    <img className='bewertungen-icon' src={IconBewertungen} alt="Geprüfte Bewertungen" />
+                </button>
+                
             </main>
 
-            {/* Modal für Anfrage */}
-            <AnfrageModal isOpen={isModalOpen} onClose={closeModal} />
+            {/* Modal für den Service-Anfrage */}
+            <AnfrageModal isOpen={isAnfrageModalOpen} onClose={closeAnfrageModal} />
+            
+            {/* Modal für die Bewertungen */}
+            <Bewertungen 
+                isOpen={isReviewModalOpen} 
+                onClose={closeReviewModal} 
+            />
 
-            {/* Cookie Banner */}
             <CookieBanner />
 
             <footer className="footer">

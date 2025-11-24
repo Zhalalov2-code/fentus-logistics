@@ -177,9 +177,11 @@ function Datenschutz() {
                             <p>Schnackenburgallee 149C</p>
                             <p>DE-22525 Hamburg</p>
                             <p>Deutschland</p>
-                            <p>Tel.: +49 (0) 40 123 456 70</p>
-                            <p>E-Mail: info@fentus-logistics.de</p>
-                            <p>Website: www.fentus-logistics.de</p>
+                            <p>Tel.: +49 (0) 40 285 30 82-0</p>
+                            <p>E-Mail: info@fentus.de</p>
+                            <p>
+                                <a href="http://www.fentus-logistics.de">Website: www.fentus-logistics.de</a>
+                            </p>
                         </div>
                     </div>
 

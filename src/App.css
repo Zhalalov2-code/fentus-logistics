@@ -870,6 +870,31 @@ main {
   color: rgba(217, 222, 240, 0.7);
 }
 
+.bewertungen {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 990;
+  width: 70px;
+  background-color: transparent;
+  border: none; 
+  color: transparent; 
+  padding: 0; 
+  cursor: pointer;
+}
+
+.bewertungen:hover {
+  transform: none; 
+  box-shadow: none;
+}
+
+.bewertungen-icon{
+  width: 70px;
+  border-radius: 100px;
+  border: #0c3174;
+}
+
+
 @media (max-width: 1080px) {
   header.top-nav {
     padding: 0 20px;

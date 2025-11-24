@@ -25,9 +25,9 @@ function Impressum() {
                     <div className="impressum-section">
                         <h2>Kontakt</h2>
                         <div className="contact-info">
-                            <p><strong>Telefon:</strong> +49 (0) 40 123 456 70</p>
-                            <p><strong>Telefax:</strong> +49 (0) 40 123 456 71</p>
-                            <p><strong>E-Mail:</strong> info@fentus-logistics.de</p>
+                            <p><strong>Telefon:</strong> +49 (0) 40 285 30 82-0</p>
+                            <p><strong>Telefax:</strong> +49 (0) 40 285 30 82-0</p>
+                            <p><strong>E-Mail:</strong> info@fentus.de</p>
                             <p><strong>Website:</strong> www.fentus-logistics.de</p>
                         </div>
                     </div>
@@ -36,16 +36,16 @@ function Impressum() {
                         <h2>Handelsregister</h2>
                         <div className="register-info">
                             <p>Sitz der Gesellschaft: Hamburg</p>
-                            <p>Amtsgericht Hamburg, HRB 123456</p>
-                            <p>Steuernummer: 47/751/00733</p>
-                            <p>USt-IdNr.: DE123456789</p>
+                            <p>Amtsgericht Hamburg: HRB 140577</p>
+                            <p>Steuernummer: 45/720/00910</p>
+                            <p>USt-IdNr.: DE815627501</p>
                         </div>
                     </div>
 
                     <div className="impressum-section">
                         <h2>Geschäftsführung</h2>
                         <div className="management-info">
-                            <p>Geschäftsführer: [Geschäftsführer Name]</p>
+                            <p>Geschäftsführer: Mustafa Saracbasi, Chihangir Ali Hasoglu, Aleksander Kinsfator</p>
                         </div>
                     </div>
 

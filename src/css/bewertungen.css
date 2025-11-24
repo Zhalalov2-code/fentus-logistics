@@ -1,0 +1,180 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 480px; 
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #333;
+    font-family: sans-serif;
+}
+
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #333;
+}
+
+.modal-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.overall-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.rating-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px;
+}
+
+/* Стили для звезд */
+.star-display, .review-stars {
+    color: gold; 
+    font-size: 1.5em; 
+    letter-spacing: 2px;
+}
+
+.source-info {
+    font-size: 0.8em;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 15px 0;
+}
+
+.divider-small {
+    border: 0;
+    height: 1px;
+    background: #f0f0f0;
+    margin: 10px 0;
+}
+
+/* --- Стили для списка отзывов --- */
+
+.reviews-list-container {
+    max-height: 250px; 
+    overflow-y: auto; 
+    padding-right: 10px;
+}
+
+.review-item {
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.review-time {
+    font-size: 0.75em;
+    color: #999;
+    margin-left: auto; /* Отодвигает время вправо */
+}
+
+.review-stars {
+    margin-left: 5px;
+}
+
+.review-text {
+    font-style: italic;
+    margin: 5px 0 0;
+}
+
+/* НОВЫЙ СТИЛЬ: Имитация значка G+ */
+.review-source-icon {
+    display: inline-block;
+    background-color: #db4437; /* Цвет Google+ */
+    color: white;
+    font-weight: bold;
+    font-size: 0.7em;
+    padding: 2px 4px;
+    border-radius: 3px;
+    line-height: 1;
+    margin-right: 8px;
+    border: 1px solid #c53929;
+}
+
+/* --- Стили для кнопок --- */
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    flex-grow: 1; 
+    margin: 0 5px;
+}
+
+.btn.primary {
+    background-color: #1a73e8; 
+    color: white;
+    border: 1px solid #1a73e8;
+}
+
+.btn.primary:hover {
+    background-color: #1669c3;
+}
+
+.btn.secondary {
+    background-color: #f8f9fa; 
+    color: #3c4043; 
+    border: 1px solid #dadce0; 
+}
+
+.btn.secondary:hover {
+    background-color: #eceff1;
+}
+
+.geprufte-bewertung-btn {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
